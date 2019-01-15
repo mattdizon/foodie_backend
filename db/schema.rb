@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_153317) do
+ActiveRecord::Schema.define(version: 2019_01_14_171426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,15 +21,25 @@ ActiveRecord::Schema.define(version: 2019_01_07_153317) do
     t.string "difficulty"
     t.string "cuisine"
     t.string "time"
-    t.string "description"
+    t.text "description"
+    t.text "thumbnail"
+    t.text "video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_chef_recipes_on_user_id"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.bigint "chef_recipe_id"
+    t.text "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chef_recipe_id"], name: "index_images_on_chef_recipe_id"
+  end
+
   create_table "recipe_ingredients", force: :cascade do |t|
     t.bigint "chef_recipe_id"
-    t.string "ingredient"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chef_recipe_id"], name: "index_recipe_ingredients_on_chef_recipe_id"
@@ -64,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_01_07_153317) do
   end
 
   add_foreign_key "chef_recipes", "users"
+  add_foreign_key "images", "chef_recipes"
   add_foreign_key "recipe_ingredients", "chef_recipes"
   add_foreign_key "recipe_instructions", "chef_recipes"
   add_foreign_key "user_ingredients", "users"

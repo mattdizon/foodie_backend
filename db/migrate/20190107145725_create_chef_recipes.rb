@@ -6,7 +6,9 @@ class CreateChefRecipes < ActiveRecord::Migration[5.2]
       t.string :difficulty
       t.string :cuisine
       t.string :time
-      t.string :description
+      t.text :description
+      t.text :thumbnail
+      t.text :video
       t.timestamps
     end
   end

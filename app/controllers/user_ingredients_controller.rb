@@ -4,6 +4,11 @@ class UserIngredientsController < ApplicationController
       render json: @ingredients
   end
 
+  def showIngredients
+      @ingredients = UserIngredient.where(user_id: params[:user_id])
+      render json: @ingredients
+  end
+
   def create
       @ingredient = UserIngredient.create!(ingredient_params)
       render json: @ingredient
