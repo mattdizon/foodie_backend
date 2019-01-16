@@ -20,12 +20,6 @@ class ChefRecipesController < ApplicationController
                   id: prop.id,
                   instruction: prop.instruction
               }
-          end,
-          images: @recipe.images.map do |image|
-              {
-                  id: image.id,
-                  url: image.url
-              }
           end
         }
   end
@@ -39,8 +33,8 @@ class ChefRecipesController < ApplicationController
 
   private
   def recipe_params
-      params.require(:user_ingredient).permit(:user_id, :recipe_name,
+      params.require(:chef_recipe).permit(:user_id, :recipe_name,
           :difficulty, :cuisine, :time,:description,:thumbnail, :video, recipe_ingredients: [:chef_recipes_id,:name],
-          recipe_instructions: [:chef_recipes_id,:instruction],images:[:chef_recipes_id,:url])
+          recipe_instructions: [:chef_recipes_id,:instruction])
   end
 end
