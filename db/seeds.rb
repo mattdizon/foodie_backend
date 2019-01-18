@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+u = User.create(first_name:"Andy", last_name:"B", username: "AndyB", email: "123@ao.c", password:"123",chef:true)
 a = ChefRecipe.create(user_id:1,recipe_name: "Spicy Mushroom Larb",
 cuisine:"Asian", time:"30-40 minutes", description:"Don’t even think about tossing, stirring, or shaking that pan until the mushrooms are golden brown and crisp. You want to achieve that flavorful texture before incorporating the additional aromatics. This recipe is part of the 2019 Feel Good Food Plan, our ten-day plan for starting the year off right.",
 thumbnail:"https://assets.bonappetit.com/photos/5c1a6e3c7b8a892ce36043b0/16:9/w_2560,c_limit/FGFP-Mushroom-Larb-Horizontal.jpg", video:"https://www.youtube.com/watch?v=rMGy4-EBb8w&t=16s" )
