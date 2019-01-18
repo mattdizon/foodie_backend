@@ -29,7 +29,7 @@ ingredients = ["1/4cup roasted, skinless peanuts",
 "1/4 head of green cabbage, halved crosswise, leaves separated",
 "Lime wedges (for serving)"]
  ingredients.each do |ing|
-     b = RecipeIngredient.create(chef_recipe_id: 1, ingredient: ing )
+     b = RecipeIngredient.create(chef_recipe_id: 1, name: ing )
  end
 
 
@@ -56,5 +56,5 @@ ingredients = ["1/4cup roasted, skinless peanuts",
 "1/2 bunch cilantro, coarsely chopped",
 "Freshly ground black pepper"]
   ingredients.each do |ing|
-      b = RecipeIngredient.create(chef_recipe_id: 2, instruction: ing )
+      b = RecipeIngredient.create(chef_recipe_id: 2, name: ing )
   end
